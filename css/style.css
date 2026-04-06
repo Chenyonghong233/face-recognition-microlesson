@@ -1,0 +1,177 @@
+/* 全局样式重置，消除浏览器默认差异 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "微软雅黑", sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* 登录页样式 */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.login-form {
+    text-align: left;
+}
+
+.login-form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-size: 14px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+.login-form input:focus {
+    border-color: #3498db;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-form button:hover {
+    background: #2980b9;
+}
+
+.tip {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+}
+
+/* 学习/答题页 - 头部导航 */
+.header {
+    background: #2c3e50;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    font-size: 18px;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav a:hover {
+    color: #3498db;
+}
+
+/* 内容容器通用样式 */
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 30px;
+}
+
+/* 学习板块样式 */
+.learn-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.learn-card h3 {
+    color: #2980b9;
+    margin-bottom: 10px;
+    border-left: 4px solid #3498db;
+    padding-left: 10px;
+}
+
+.learn-card p,
+.learn-card li {
+    line-height: 1.8;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.learn-card ul {
+    padding-left: 20px;
+}
+
+/* 答题板块样式 */
+.exam-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.question {
+    margin: 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.question h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.option {
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+#submitBtn {
+    padding: 10px 30px;
+    background: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#submitBtn:hover {
+    background: #27ae60;
+}
+
+#scoreResult {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #e74c3c;
+}
