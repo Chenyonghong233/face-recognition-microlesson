@@ -4,24 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>人脸识别微课 - 课后拓展平台</title>
-    <!-- 引入全局样式 -->
+    <title>人脸识别微课 - 首页</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="login-container">
-        <h1>人脸识别微课课后拓展平台</h1>
-        <div class="login-form">
-            <label for="username">账号：</label>
-            <input type="text" id="username" placeholder="请输入账号" required>
-            <label for="password">密码：</label>
-            <input type="password" id="password" placeholder="请输入密码" required>
-            <button id="loginBtn">登录</button>
-            <p class="tip">默认测试账号：admin | 密码：123456</p>
+    <!-- 响应式导航栏 -->
+    <div class="header">
+        <h2>人脸识别微课</h2>
+        <div class="nav">
+            <a href="./index.html" class="active">学习板块</a>
+            <a href="./pages/exam.html">答题板块</a>
         </div>
     </div>
-    <!-- 引入全局脚本 -->
+    <!-- 学习内容（整合原learn.html） -->
+    <div class="content">
+        <div class="learn-banner">
+            <!-- 替换为你的图片链接：建议尺寸750*300（手机适配） -->
+            <img src="images\1.png" alt="人脸识别微课封面">
+        </div>
+        <div class="learn-card">
+            <h3>一、微课核心知识点：人脸识别四步核心流程</h3>
+            <!-- 替换为你的图片链接：建议尺寸600*200 -->
+            <img src="images\2.png" alt="人脸识别四步流程" class="learn-img">
+            <ul>
+                <li>人脸检测：锁定图像中的人脸位置，区分人脸与背景/其他物体，确定识别区域；</li>
+                <li>人脸对齐：通过旋转、缩放、平移将不同角度人脸与标准模板对齐，统一姿态；</li>
+                <li>特征提取：借助深度学习模型（CNN）提取人脸关键特征，生成独一无二的“数字身份证”（特征向量）；</li>
+                <li>人脸匹配：将提取的特征模板与数据库模板对比，通过相似度分数判断是否为同一人。</li>
+            </ul>
+        </div>
+        <div class="learn-card">
+            <h3>二、人脸识别技术的核心逻辑</h3>
+            <!-- 替换为你的图片链接：建议尺寸600*200 -->
+            <img src="images\3.png" alt="人脸识别核心逻辑" class="learn-img">
+            <p>计算机识别人脸的整体逻辑与人类一致：<strong>收集信息（摄像头）→ 处理信息（四步流程）→ 输出结果（显示屏/验证成功/失败）</strong>。</p>
+            <p>人类靠眼睛和大脑完成，计算机则通过硬件（摄像头）+ 算法（检测/对齐/提取/匹配）+ 数据库实现。</p>
+        </div>
+        <div class="learn-card">
+            <h3>三、人脸信息保护小技巧</h3>
+            <!-- 替换为你的图片链接：建议尺寸600*200 -->
+            <img src="images\4.png" alt="人脸信息保护" class="learn-img">
+            <ul>
+                <li>不随意在陌生APP/网站录入人脸信息，确认平台正规性；</li>
+                <li>不随便在网上发布高清人脸照片、视频，避免被非法采集；</li>
+                <li>遇到强制“刷脸”要求，可拨打12345或通过中国网信网专栏举报；</li>
+                <li>人脸信息属于敏感生物识别信息，受《刑法》保护，非法采集需承担法律责任。</li>
+            </ul>
+        </div>
+    </div>
     <script src="./js/main.js"></script>
 </body>
 
