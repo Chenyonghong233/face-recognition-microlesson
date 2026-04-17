@@ -405,10 +405,11 @@ body {
         padding: 6px 8px;
     }
 
-    /* 🔥 手机横幅终极修复：高度280px，饱满不缩小，比学习图更大 */
+    /* 🔥 手机横幅调整：高度改为380px（比学习图片大），其他样式不变 */
     .learn-banner {
         width: 100%;
-        height: 280px;
+        height: 380px;
+        /* 核心修改：从280px调大到380px，可根据需求微调 */
         margin-top: 15px;
         margin-bottom: 25px;
         border-radius: 10px;
