@@ -370,7 +370,7 @@ body {
     }
 }
 
-/* 手机端（最终修复版：尺寸合适+图片完整显示） */
+/* 手机端（终极修复：图片完整显示+宽度拉满+足够长） */
 @media (max-width: 576px) {
     .header {
         padding: 14px 12px;
@@ -405,23 +405,20 @@ body {
         padding: 6px 8px;
     }
 
-    /* 横幅保持你满意的高度 */
+    /* 🔥 核心修改：取消固定高度，自适应图片，宽度100%拉满 */
     .learn-banner {
         width: 100%;
-        height: 380px;
+        height: auto;
         margin-top: 15px;
         margin-bottom: 25px;
         border-radius: 10px;
         overflow: hidden;
-        background-color: #f5f7fa;
     }
 
-    /* 核心修复：图片完整显示，不裁剪 */
+    /* 🔥 核心修改：图片宽度100%，高度自适应，完整显示不裁剪 */
     .learn-banner img {
         width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
+        height: auto;
         display: block;
     }
 
