@@ -6,17 +6,15 @@
     font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
 }
 
-/* 全局基础样式：电脑端字体再次加大，手机端自适应 */
+/* 全局基础样式 */
 body {
     background-color: #f5f7fa;
     color: #333;
     font-size: 16px;
     line-height: 1.8;
-    /* 新增：给body顶部加内边距，彻底避开导航栏 */
-    padding-top: 10px;
 }
 
-/* 导航栏：固定顶部，适配双端 + 二级下拉导航 */
+/* 导航栏 */
 .header {
     background: #2c3e50;
     color: #fff;
@@ -27,9 +25,6 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
-    /* 新增：明确导航栏高度，方便计算间距 */
-    height: auto;
-    min-height: 80px;
 }
 
 .logo {
@@ -45,7 +40,7 @@ body {
     position: relative;
 }
 
-/* 二级下拉导航核心样式 - 彻底修复文字默认不可见问题 */
+/* 二级下拉导航（文字默认全可见） */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -74,7 +69,6 @@ body {
     top: 100%;
     left: 0;
     background-color: #ffffff;
-    /* 纯白背景，最大化对比度 */
     min-width: 180px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
@@ -82,32 +76,23 @@ body {
     overflow: hidden;
     padding: 5px 0;
     border: 1px solid #e0e0e0;
-    /* 增加边框，下拉框更清晰 */
 }
 
-/* 核心修复：默认文字100%可见，无透明/空白问题 */
 .dropdown-content a {
     color: #2c3e50 !important;
-    /* 强制深色文字，避免样式覆盖 */
     padding: 12px 16px;
     text-decoration: none !important;
-    /* 强制无下划线 */
     display: block;
     font-size: 16px;
     font-weight: 600;
-    /* 加粗，提升可读性 */
     background-color: #ffffff;
-    /* 纯白背景，强对比 */
     transition: all 0.2s;
     opacity: 1 !important;
-    /* 强制不透明，彻底解决空白 */
 }
 
-/* hover时交互效果（保留，不影响默认可见性） */
 .dropdown-content a:hover {
     background-color: #3498db;
     color: #ffffff !important;
-    /* hover反色，更醒目 */
 }
 
 .dropdown-content a.active {
@@ -119,7 +104,7 @@ body {
     display: block;
 }
 
-/* 原导航链接样式（答题板块） */
+/* 普通导航链接 */
 .nav a:not(.dropdown-btn) {
     color: #fff;
     text-decoration: none;
@@ -139,29 +124,23 @@ body {
     opacity: 0.9;
 }
 
-/* 内容容器：居中适配 */
+/* 内容容器 */
 .content {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 0 20px;
-    /* 核心修改：容器顶部间距加大，彻底避开导航 */
-    margin-top: 40px;
 }
 
-/* 核心优化：顶部横幅图片 1920px × 500px（彻底不遮挡） */
+/* 电脑端横幅（不遮挡） */
 .learn-banner {
     width: 100%;
     height: 500px;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 35px;
-    /* 终极修复：加大顶部间距，远大于导航高度 */
-    margin-top: 40px !important;
+    margin-top: 40px;
     position: relative;
     z-index: 1;
-    /* 新增：确保横幅不会向上偏移 */
-    top: 0;
-    left: 0;
 }
 
 .learn-banner img {
@@ -170,12 +149,9 @@ body {
     object-fit: cover;
     display: block;
     background-color: #f5f7fa;
-    /* 新增：图片绝对定位，确保完整显示 */
-    position: relative;
-    z-index: 1;
 }
 
-/* 学习卡片样式 */
+/* 学习卡片 */
 .learn-card {
     background: #fff;
     padding: 30px;
@@ -193,7 +169,7 @@ body {
     font-weight: 600;
 }
 
-/* 核心优化：其他图片 800px × 450px */
+/* 学习图片 800×450 */
 .learn-img {
     width: 100%;
     max-width: 800px;
@@ -215,7 +191,7 @@ body {
     padding-left: 28px;
 }
 
-/* 答题卡片样式 */
+/* 答题卡片 */
 .exam-card {
     background: #fff;
     padding: 35px;
@@ -244,7 +220,7 @@ body {
     line-height: 1.8;
 }
 
-/* 答题选项：解决手机端挤压，双端舒适 */
+/* 答题选项 */
 .option {
     display: flex;
     align-items: center;
@@ -267,7 +243,7 @@ body {
     flex-shrink: 0;
 }
 
-/* 答案解析样式 */
+/* 解析 */
 .analysis {
     margin-top: 20px;
 }
@@ -320,7 +296,7 @@ body {
     background: #27ae60;
 }
 
-/* 分数结果 */
+/* 分数 */
 .score-result {
     margin-top: 30px;
     font-size: 24px;
@@ -332,11 +308,10 @@ body {
     border-radius: 8px;
 }
 
-/* 电脑端专属（大屏）：字体再次加大 */
+/* 电脑端 */
 @media (min-width: 768px) {
     body {
         font-size: 20px;
-        padding-top: 0;
     }
 
     .logo {
@@ -389,18 +364,16 @@ body {
         font-size: 20px;
     }
 
-    /* 电脑端横幅：终极间距，确保不遮挡 */
     .learn-banner {
         height: 500px;
-        margin-top: 50px !important;
+        margin-top: 50px;
     }
 }
 
-/* ====================== 手机端：横幅保持大尺寸，不修改 ====================== */
+/* 手机端（仅修复横幅变大，其他不动） */
 @media (max-width: 576px) {
     .header {
         padding: 14px 12px;
-        min-height: 70px;
     }
 
     .logo {
@@ -432,19 +405,21 @@ body {
         padding: 6px 8px;
     }
 
-    /* 手机横幅：保持你满意的260px高度 */
+    /* 🔥 手机横幅终极修复：高度280px，饱满不缩小，比学习图更大 */
     .learn-banner {
-        width: 100% !important;
-        height: 260px !important;
-        aspect-ratio: auto !important;
-        margin-top: 15px !important;
+        width: 100%;
+        height: 280px;
+        margin-top: 15px;
         margin-bottom: 25px;
+        border-radius: 10px;
+        overflow: hidden;
     }
 
     .learn-banner img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
     }
 
     .learn-card {
