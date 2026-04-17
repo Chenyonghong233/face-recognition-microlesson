@@ -6,7 +6,7 @@
     font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
 }
 
-/* 全局基础样式：电脑端字体再次加大，手机端自适应 */
+/* 全局基础样式：电脑端字体加大，手机端自适应 */
 body {
     background-color: #f5f7fa;
     color: #333;
@@ -14,7 +14,7 @@ body {
     line-height: 1.8;
 }
 
-/* 导航栏：固定顶部，适配双端 */
+/* 导航栏：固定顶部，适配双端 + 二级下拉导航 */
 .header {
     background: #2c3e50;
     color: #fff;
@@ -37,9 +37,85 @@ body {
     display: flex;
     gap: 18px;
     align-items: center;
+    position: relative;
 }
 
-.nav a {
+/* 二级下拉导航核心样式 - 彻底修复文字默认不可见问题 */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.dropdown:hover .dropdown-btn {
+    background: #3498db;
+    opacity: 0.9;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    /* 纯白背景，最大化对比度 */
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    z-index: 1000;
+    overflow: hidden;
+    padding: 5px 0;
+    border: 1px solid #e0e0e0;
+    /* 增加边框，下拉框更清晰 */
+}
+
+/* 核心修复：默认文字100%可见，无透明/空白问题 */
+.dropdown-content a {
+    color: #2c3e50 !important;
+    /* 强制深色文字，避免样式覆盖 */
+    padding: 12px 16px;
+    text-decoration: none !important;
+    /* 强制无下划线 */
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    /* 加粗，提升可读性 */
+    background-color: #ffffff;
+    /* 纯白背景，强对比 */
+    transition: all 0.2s;
+    opacity: 1 !important;
+    /* 强制不透明，彻底解决空白 */
+}
+
+/* hover时交互效果（保留，不影响默认可见性） */
+.dropdown-content a:hover {
+    background-color: #3498db;
+    color: #ffffff !important;
+    /* hover反色，更醒目 */
+}
+
+.dropdown-content a.active {
+    background: #3498db;
+    color: #fff !important;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 原导航链接样式（答题板块） */
+.nav a:not(.dropdown-btn) {
     color: #fff;
     text-decoration: none;
     font-size: 17px;
@@ -49,11 +125,11 @@ body {
     white-space: nowrap;
 }
 
-.nav a.active {
+.nav a:not(.dropdown-btn).active {
     background: #3498db;
 }
 
-.nav a:hover {
+.nav a:not(.dropdown-btn):hover {
     background: #3498db;
     opacity: 0.9;
 }
@@ -65,22 +141,30 @@ body {
     padding: 0 20px;
 }
 
-/* ====================== 核心优化：顶部横幅图片 1920px × 500px ====================== */
+/* 核心修复：顶部横幅图片 1920px × 500px（避免被导航栏遮挡） */
 .learn-banner {
     width: 100%;
-    /* 严格按照要求：电脑端固定高度500px，完美匹配1920×500尺寸 */
     height: 500px;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 35px;
+    margin-top: 20px;
+    /* 关键：增加顶部间距，避开导航栏 */
+    position: relative;
+    z-index: 1;
+    /* 确保层级正常，不被覆盖 */
 }
 
 .learn-banner img {
     width: 100%;
     height: 100%;
-    /* 保持图片比例，填充容器，不拉伸、显示完整，解决图片不全问题 */
-    object-fit: cover;
+    object-fit: contain;
+    /* 确保图片完整显示，不裁剪 */
     display: block;
+    margin: 0 auto;
+    /* 图片居中，避免偏移 */
+    background-color: #f5f7fa;
+    /* 图片加载过渡背景 */
 }
 
 /* 学习卡片样式 */
@@ -101,9 +185,8 @@ body {
     font-weight: 600;
 }
 
-/* ====================== 核心优化：其他图片 800px × 450px ====================== */
+/* 其他图片样式 800px × 450px */
 .learn-img {
-    /* 严格按照要求：固定800×450比例（16:9），电脑端最大宽度800px */
     width: 100%;
     max-width: 800px;
     aspect-ratio: 800 / 450;
@@ -153,7 +236,7 @@ body {
     line-height: 1.8;
 }
 
-/* ====================== 答题选项：解决手机端挤压，双端舒适 ====================== */
+/* 答题选项：双端适配，不拥挤 */
 .option {
     display: flex;
     align-items: center;
@@ -241,10 +324,9 @@ body {
     border-radius: 8px;
 }
 
-/* ====================== 电脑端专属（大屏）：字体再次加大 ====================== */
+/* 电脑端专属（大屏）：字体加大 */
 @media (min-width: 768px) {
     body {
-        /* 电脑端基础字体加大到20px，满足你字体更大的需求 */
         font-size: 20px;
     }
 
@@ -252,7 +334,18 @@ body {
         font-size: 28px;
     }
 
-    .nav a {
+    .dropdown-btn {
+        font-size: 19px;
+        padding: 12px 22px;
+    }
+
+    .dropdown-content a {
+        font-size: 18px;
+        /* 电脑端二级导航文字放大 */
+        padding: 14px 18px;
+    }
+
+    .nav a:not(.dropdown-btn) {
         font-size: 19px;
         padding: 12px 22px;
     }
@@ -287,9 +380,15 @@ body {
     .analysis-content p {
         font-size: 20px;
     }
+
+    /* 电脑端横幅优化：确保高度足够且不被遮挡 */
+    .learn-banner {
+        height: 500px;
+        margin-top: 25px;
+    }
 }
 
-/* ====================== 手机端专属（小屏）：不拥挤、自适应 ====================== */
+/* 手机端专属（小屏）：自适应，不拥挤 */
 @media (max-width: 576px) {
     .header {
         padding: 14px 12px;
@@ -303,16 +402,34 @@ body {
         gap: 8px;
     }
 
-    .nav a {
+    .dropdown-btn {
         font-size: 14px;
         padding: 6px 8px;
     }
 
-    /* 手机端顶部图片：按1920×500比例自适应，不拉伸 */
+    .dropdown-content {
+        min-width: 150px;
+        padding: 3px 0;
+    }
+
+    .dropdown-content a {
+        font-size: 14px;
+        padding: 10px 12px;
+        font-weight: 600;
+    }
+
+    .nav a:not(.dropdown-btn) {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+
+    /* 手机端顶部图片：按比例自适应，不拉伸 */
     .learn-banner {
         height: auto;
         aspect-ratio: 1920 / 500;
         margin-bottom: 25px;
+        margin-top: 15px;
+        /* 适配手机端导航栏高度 */
     }
 
     /* 手机端学习卡片 */
@@ -342,7 +459,7 @@ body {
         font-size: 18px;
     }
 
-    /* 手机端选项：绝对不拥挤，独立成行，触控舒适 */
+    /* 手机端选项：触控舒适 */
     .option {
         padding: 12px 14px;
         font-size: 16px;
