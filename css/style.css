@@ -370,7 +370,7 @@ body {
     }
 }
 
-/* 手机端（仅修复横幅变大，其他不动） */
+/* 手机端（最终修复版：尺寸合适+图片完整显示） */
 @media (max-width: 576px) {
     .header {
         padding: 14px 12px;
@@ -405,21 +405,23 @@ body {
         padding: 6px 8px;
     }
 
-    /* 🔥 手机横幅调整：高度改为380px（比学习图片大），其他样式不变 */
+    /* 横幅保持你满意的高度 */
     .learn-banner {
         width: 100%;
         height: 380px;
-        /* 核心修改：从280px调大到380px，可根据需求微调 */
         margin-top: 15px;
         margin-bottom: 25px;
         border-radius: 10px;
         overflow: hidden;
+        background-color: #f5f7fa;
     }
 
+    /* 核心修复：图片完整显示，不裁剪 */
     .learn-banner img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
         display: block;
     }
 
