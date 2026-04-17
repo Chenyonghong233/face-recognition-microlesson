@@ -6,7 +6,7 @@
     font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
 }
 
-/* 全局基础样式：电脑端字体加大，手机端自适应 */
+/* 全局基础样式：电脑端字体再次加大，手机端自适应 */
 body {
     background-color: #f5f7fa;
     color: #333;
@@ -141,7 +141,7 @@ body {
     padding: 0 20px;
 }
 
-/* 核心修复：顶部横幅图片 1920px × 500px（避免被导航栏遮挡） */
+/* 核心优化：顶部横幅图片 1920px × 500px */
 .learn-banner {
     width: 100%;
     height: 500px;
@@ -149,22 +149,16 @@ body {
     overflow: hidden;
     margin-bottom: 35px;
     margin-top: 20px;
-    /* 关键：增加顶部间距，避开导航栏 */
     position: relative;
     z-index: 1;
-    /* 确保层级正常，不被覆盖 */
 }
 
 .learn-banner img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    /* 确保图片完整显示，不裁剪 */
+    object-fit: cover;
     display: block;
-    margin: 0 auto;
-    /* 图片居中，避免偏移 */
     background-color: #f5f7fa;
-    /* 图片加载过渡背景 */
 }
 
 /* 学习卡片样式 */
@@ -185,7 +179,7 @@ body {
     font-weight: 600;
 }
 
-/* 其他图片样式 800px × 450px */
+/* 核心优化：其他图片 800px × 450px */
 .learn-img {
     width: 100%;
     max-width: 800px;
@@ -236,7 +230,7 @@ body {
     line-height: 1.8;
 }
 
-/* 答题选项：双端适配，不拥挤 */
+/* 答题选项：解决手机端挤压，双端舒适 */
 .option {
     display: flex;
     align-items: center;
@@ -324,7 +318,7 @@ body {
     border-radius: 8px;
 }
 
-/* 电脑端专属（大屏）：字体加大 */
+/* 电脑端专属（大屏）：字体再次加大 */
 @media (min-width: 768px) {
     body {
         font-size: 20px;
@@ -341,7 +335,6 @@ body {
 
     .dropdown-content a {
         font-size: 18px;
-        /* 电脑端二级导航文字放大 */
         padding: 14px 18px;
     }
 
@@ -381,14 +374,13 @@ body {
         font-size: 20px;
     }
 
-    /* 电脑端横幅优化：确保高度足够且不被遮挡 */
     .learn-banner {
         height: 500px;
         margin-top: 25px;
     }
 }
 
-/* 手机端专属（小屏）：自适应，不拥挤 */
+/* ====================== 手机端：彻底修复横幅太小、变扁 ====================== */
 @media (max-width: 576px) {
     .header {
         padding: 14px 12px;
@@ -423,16 +415,22 @@ body {
         padding: 6px 8px;
     }
 
-    /* 手机端顶部图片：按比例自适应，不拉伸 */
+    /* 🔥 手机横幅核心修复：不再变小、不再压扁，饱满好看 */
     .learn-banner {
-        height: auto;
-        aspect-ratio: 1920 / 500;
-        margin-bottom: 25px;
+        width: 100%;
+        height: auto !important;
+        aspect-ratio: 1920 / 500 !important;
         margin-top: 15px;
-        /* 适配手机端导航栏高度 */
+        margin-bottom: 25px;
     }
 
-    /* 手机端学习卡片 */
+    .learn-banner img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+    }
+
     .learn-card {
         padding: 20px 15px;
     }
@@ -446,7 +444,6 @@ body {
         font-size: 16px;
     }
 
-    /* 手机端答题卡片 */
     .exam-card {
         padding: 20px 15px;
     }
@@ -459,7 +456,6 @@ body {
         font-size: 18px;
     }
 
-    /* 手机端选项：触控舒适 */
     .option {
         padding: 12px 14px;
         font-size: 16px;
@@ -470,7 +466,6 @@ body {
         transform: scale(1.3);
     }
 
-    /* 手机端解析换行，不挤压 */
     .analysis-content span {
         display: block;
         margin-right: 0;
