@@ -370,7 +370,7 @@ body {
     }
 }
 
-/* 手机端（终极修复：图片完整显示+宽度拉满+足够长） */
+/* 手机端（最终完美版：图片完整+间距紧凑+美观） */
 @media (max-width: 576px) {
     .header {
         padding: 14px 12px;
@@ -405,17 +405,17 @@ body {
         padding: 6px 8px;
     }
 
-    /* 🔥 核心修改：取消固定高度，自适应图片，宽度100%拉满 */
+    /* 🔥 核心：缩小上下间距，紧贴导航、贴近卡片，图片完整显示 */
     .learn-banner {
         width: 100%;
         height: auto;
-        margin-top: 15px;
-        margin-bottom: 25px;
+        /* 间距调小：上8px 下12px，紧凑美观 */
+        margin-top: 8px;
+        margin-bottom: 12px;
         border-radius: 10px;
         overflow: hidden;
     }
 
-    /* 🔥 核心修改：图片宽度100%，高度自适应，完整显示不裁剪 */
     .learn-banner img {
         width: 100%;
         height: auto;
